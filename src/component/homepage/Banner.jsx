@@ -111,7 +111,7 @@ const Banner = () => {
                 className="relative rounded-3xl border border-white/10 bg-[#101010] p-3"
               >
                 <Image
-                  src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=1200"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuBA475wzQrs1OuhziXzT0u68yN703D6-BQKf6E2yZIIBJ32bvpQqLqGORYw4jutXVWekLf221vUmovy3rKyBWQTES9XPKVLgjeDSzeNqCP4VICYNNlmsD07jB-yImkjLJaYApPdj-8oMXGApvB2VWs21DhyM7tygTBmzq3P-Dup9tk-BIJloqH3-wyUQF7l2HbHZ1HRuxOIRgflu4kDJQFpOO1UXwpLni7PzFsAAKy77pBY4LOURzPXEZMWGjwTDp7AV4YgR72vAsQ"
                   alt="Food"
                   width={700}
                   height={700}
