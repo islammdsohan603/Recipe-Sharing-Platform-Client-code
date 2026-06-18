@@ -42,8 +42,9 @@ const LoginPage = () => {
     });
 
     if (data) {
-      toast.success('Account successfully created.');
-      router.push('/');
+      toast.success('Login successful');
+      router.refresh();
+      window.location.href = '/';
     }
 
     if (error) {
