@@ -14,7 +14,7 @@ const Banner = () => {
       <div className="absolute bottom-10 right-10 h-96 w-96 rounded-full bg-orange-600/10 blur-3xl" />
 
       <div className="relative w-11/12 max-w-7xl mx-auto h-[85vh] md:h-[90vh] flex items-center">
-        <div className="grid md:grid-cols-2 gap-16 items-center w-full">
+        <div className=" grid  md:grid-cols-2 gap-16 items-center w-full">
           {/* Left Side Content */}
           <motion.div
             initial={{ opacity: 0, x: -80 }}

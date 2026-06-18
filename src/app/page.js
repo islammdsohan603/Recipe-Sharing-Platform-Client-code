@@ -1,7 +1,9 @@
 import Banner from "@/component/homepage/Banner";
+
+import SeasonalHarvestCard from "@/component/homepage/SeasonalHarvestCard";
 import Community from "@/component/share/community";
-import SeasonalHarvestCard from "@/component/share/SeasonalHarvestCard";
-import Image from "next/image";
+import Footer from "@/component/share/Footer";
+
 
 export default function Home() {
   return (
@@ -9,6 +11,7 @@ export default function Home() {
       <Banner />
       <SeasonalHarvestCard />
       <Community />
+      <Footer />
     </div>
   )
 }
