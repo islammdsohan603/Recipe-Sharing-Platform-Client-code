@@ -4,16 +4,16 @@ import { FaFacebookF, FaInstagram, FaXTwitter } from 'react-icons/fa6';
 
 const Footer = () => {
   const quickLinks = [
-    { name: 'Home', href: '#home' },
-    { name: 'Seasonal Harvest', href: '#harvest' },
-    { name: 'Chef Community', href: '#community' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'Home', href: '/' },
+    { name: 'Seasonal Harvest', href: '/harvest' },
+    { name: 'Chef Community', href: '/community' },
+    { name: 'Contact', href: '/contact' },
   ];
 
   const contacts = [
-    { icon: Mail, label: 'hello@recipehub.com' },
-    { icon: Phone, label: '+1 (555) 018-2947' },
-    { icon: MapPin, label: 'New York, United States' },
+    { icon: Mail, label: 'islammdsohan603@gmail.com' },
+    { icon: Phone, label: '+880 1643223840' },
+    { icon: MapPin, label: 'Dhaka, Bangladesh' },
   ];
 
   const socials = [

@@ -78,7 +78,11 @@ const Navbar = () => {
             className="md:hidden text-[#f5dec9]"
             aria-label="Toggle Menu"
           >
-            {isOpen ? <X size={28} /> : <Menu size={28} />}
+            {isOpen ? (
+              <X size={28} className="cursor-pointer text-orange-600" />
+            ) : (
+              <Menu size={28} className="cursor-pointer" />
+            )}
           </button>
         </div>
 
