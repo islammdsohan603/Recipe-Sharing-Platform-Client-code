@@ -86,7 +86,11 @@ const Navbar = () => {
           ) : user ? (
             <div className="hidden md:flex items-center gap-2">
               <Avatar>
-                <Avatar.Image alt={user?.name} src={user?.image} />
+                <Avatar.Image
+                  alt={user?.name}
+                  src={user?.image}
+                  className=" object-cover cursor-pointer"
+                />
                 <Avatar.Fallback>{user.name.charAt(0)}</Avatar.Fallback>
               </Avatar>
 
