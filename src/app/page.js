@@ -1,7 +1,7 @@
 import Banner from "@/component/homepage/Banner";
 
 import SeasonalHarvestCard from "@/component/homepage/SeasonalHarvestCard";
-import Community from "@/component/share/community";
+import Community from "@/component/homepage/community";
 import Footer from "@/component/share/Footer";
 
 

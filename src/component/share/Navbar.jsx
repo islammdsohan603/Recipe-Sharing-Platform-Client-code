@@ -132,7 +132,7 @@ const Navbar = () => {
               </Link>
 
               <Link
-                href="/register"
+                href="/signup"
                 onClick={closeMenu}
                 className="block text-center rounded-xl bg-orange-500 py-3 font-semibold text-white hover:bg-orange-600 transition"
               >
