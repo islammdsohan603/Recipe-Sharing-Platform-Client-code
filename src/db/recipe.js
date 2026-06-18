@@ -34,3 +34,15 @@ export const gerFeaturedRecipe = async () => {
   }
 }
 
+// all data
+
+export const getAllRecipeData = async () => {
+  try {
+    const res = await fetch(`${baseUrl}/api/all-recipe`)
+    const result = await res.json()
+    console.log(result)
+    return result
+  } catch (error) {
+    console.log(error)
+  }
+}

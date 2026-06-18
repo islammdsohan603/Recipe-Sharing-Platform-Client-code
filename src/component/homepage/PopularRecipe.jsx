@@ -3,7 +3,6 @@ import PopularRecipeCard from './PopularRecipeCard';
 
 const PopularRecipe = async () => {
   const data = await getPupolarRecipe();
-  console.log(data);
 
   return (
     <div className="bg-[#0c0604]">
