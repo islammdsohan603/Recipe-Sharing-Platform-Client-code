@@ -1,5 +1,5 @@
 
-'use server'
+
 
 const baseUrl = process.env.NEXT_PULIC_SERVER_URL;
 
@@ -17,5 +17,20 @@ export const getPupolarRecipe = async () => {
     console.log(error)
   }
 
+}
+
+
+export const gerFeaturedRecipe = async () => {
+  try {
+    const res = await fetch(`${baseUrl}/api/featured-recipe`)
+
+    const result = await res.json()
+    return result
+
+  } catch (error) {
+
+    console.log(error)
+
+  }
 }
 

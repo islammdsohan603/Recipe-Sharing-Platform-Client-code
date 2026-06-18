@@ -1,4 +1,5 @@
 import Banner from "@/component/homepage/Banner";
+import FeaturedScetion from "@/component/homepage/FeaturedScetion";
 import PopularRecipe from "@/component/homepage/PopularRecipe";
 
 import SeasonalHarvestCard from "@/component/homepage/SeasonalHarvestCard";
@@ -13,6 +14,7 @@ export default function Home() {
 
       <Banner />
       <PopularRecipe />
+      <FeaturedScetion />
       <SeasonalHarvestCard />
       <Community />
       <Footer />
