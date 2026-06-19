@@ -46,7 +46,7 @@ const Banner = () => {
                 }}
               >
                 <Link
-                  href="#harvest"
+                  href="/browse"
                   className="inline-flex w-full items-center justify-center rounded-xl bg-[#ff6d33] px-7 py-3.5 font-semibold text-white shadow-[0_0_30px_rgba(255,109,51,.35)] transition hover:bg-[#ff5a1f] sm:w-auto"
                 >
                   Start Cooking
@@ -62,7 +62,7 @@ const Banner = () => {
                 }}
               >
                 <Link
-                  href="#community"
+                  href="/browse"
                   className="inline-flex w-full items-center justify-center rounded-xl border border-[#4a2b20] px-7 py-3.5 text-white transition hover:bg-white/5 sm:w-auto"
                 >
                   Explore Trends

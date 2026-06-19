@@ -17,9 +17,13 @@ const Footer = () => {
   ];
 
   const socials = [
-    { icon: FaFacebookF, label: 'Facebook' },
-    { icon: FaInstagram, label: 'Instagram' },
-    { icon: FaXTwitter, label: 'X' },
+    { icon: FaFacebookF, label: 'Facebook', href: 'https://www.facebook.com/' },
+    {
+      icon: FaInstagram,
+      label: 'Instagram',
+      href: 'https://www.instagram.com/',
+    },
+    { icon: FaXTwitter, label: 'X', href: 'https://x.com/' },
   ];
 
   return (
@@ -43,15 +47,17 @@ const Footer = () => {
             </p>
 
             <div className="mt-6 flex flex-wrap gap-3">
-              {socials.map(({ icon: Icon, label }) => (
-                <a
+              {socials.map(({ icon: Icon, label, href }) => (
+                <Link
                   key={label}
-                  href="#contact"
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   aria-label={label}
                   className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] text-[#f5dec9]/80 transition hover:border-orange-500/50 hover:bg-orange-500/10 hover:text-white"
                 >
                   <Icon size={18} />
-                </a>
+                </Link>
               ))}
             </div>
           </div>

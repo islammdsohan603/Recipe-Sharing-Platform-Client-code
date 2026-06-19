@@ -46,3 +46,24 @@ export const getAllRecipeData = async () => {
     console.log(error)
   }
 }
+
+// get single data for details page
+
+export const getDetailsRecipeData = async (id) => {
+  try {
+
+    const res = await fetch(`${baseUrl}/api/details/${id}`, {
+      cache: 'no-store' //  
+    });
+
+    if (!res.ok) {
+      throw new Error("Failed to fetch recipe details");
+    }
+
+    const result = await res.json();
+    return result;
+  } catch (error) {
+    console.error("Error in getDetailsRecipeData:", error);
+    return null;
+  }
+};

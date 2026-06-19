@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 import { FaArrowRightLong } from 'react-icons/fa6';
 
 export default function SeasonalHarvestCard() {
@@ -67,18 +68,20 @@ export default function SeasonalHarvestCard() {
           </motion.p>
 
           {/* Button */}
-          <motion.button
-            whileHover={{
-              scale: 1.05,
-            }}
-            whileTap={{
-              scale: 0.95,
-            }}
-            className="mt-8 inline-flex w-full items-center justify-center gap-3 rounded-full bg-lime-400 px-6 py-3 font-semibold text-black transition-all duration-300 hover:bg-lime-300 sm:w-auto"
-          >
-            Explore Collection
-            <FaArrowRightLong className="transition-transform duration-300 group-hover:translate-x-1" />
-          </motion.button>
+          <Link href={'/browse'}>
+            <motion.button
+              whileHover={{
+                scale: 1.05,
+              }}
+              whileTap={{
+                scale: 0.95,
+              }}
+              className="mt-8 inline-flex w-full items-center justify-center cursor-pointer gap-3 rounded-full bg-lime-400 px-6 py-3 font-semibold text-black transition-all duration-300 hover:bg-lime-300 sm:w-auto"
+            >
+              Explore Collection
+              <FaArrowRightLong className="transition-transform duration-300 group-hover:translate-x-1" />
+            </motion.button>
+          </Link>
         </div>
       </motion.div>
     </section>
