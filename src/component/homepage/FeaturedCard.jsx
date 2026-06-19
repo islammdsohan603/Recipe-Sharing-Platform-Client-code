@@ -8,6 +8,7 @@ import Link from 'next/link';
 
 const FeaturedCard = ({ recipe }) => {
   const {
+    _id,
     recipeName,
     recipeImage,
     category,
@@ -98,7 +99,7 @@ const FeaturedCard = ({ recipe }) => {
 
         {/* Hover Action */}
         <div className="absolute inset-0 flex items-end p-6 bg-linear-to-t from-[#0c0604] via-[#0c0604]/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-          <Link href={'/browse'} className="w-full">
+          <Link href={`/details/${_id}`} className="w-full">
             <button className="w-full cursor-pointer py-3 px-6 bg-orange-500 hover:bg-orange-600 text-white font-bold rounded-2xl transition-colors duration-300 pointer-events-auto shadow-lg text-lg">
               View Recipe Details
             </button>

@@ -1,16 +1,17 @@
+import RecipeDetailsClientCard from '@/component/browsecomponent/RecipeDetailsClientCard';
 import { getDetailsRecipeData } from '@/db/recipe';
+import Image from 'next/image';
 import React from 'react';
 
 const RecipeDetails = async ({ params }) => {
   const resolveParams = await params;
   const id = resolveParams.id;
 
-  const data = await getDetailsRecipeData(id);
+  const recipe = await getDetailsRecipeData(id);
 
   return (
-    <div className="flex items-center justify-center min-h-screens">
-      <h1>details</h1>
-      <h1> {data.recipeName} </h1>
+    <div>
+      <RecipeDetailsClientCard recipe={recipe} />
     </div>
   );
 };
