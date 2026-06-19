@@ -1,3 +1,4 @@
+import SelectDropdown from '@/component/browsecomponent/page';
 import FeaturedCard from '@/component/homepage/FeaturedCard';
 import PopularRecipeCard from '@/component/homepage/PopularRecipeCard';
 import { getAllRecipeData } from '@/db/recipe';
@@ -8,10 +9,22 @@ const BrowesRecipe = async () => {
 
   return (
     <div className="bg-[#0c0604]">
-      <div className="w-11/12 max-w-7xl mx-auto py-6">
-        <div>
-          <h1> Explore Recipes </h1>
-          <span> Showing 124 curated culinary masterpieces </span>
+      <div className="w-11/12 max-w-7xl mx-auto py-6 md:py-10">
+        <div className="flex flex-col md:flex-row items-center justify-between py-6  ">
+          <div>
+            <h1 className="text-2xl font-bold md:text-3xl lg:text-4xl ">
+              {' '}
+              Explore Recipes{' '}
+            </h1>
+            <span className="text-lg font-semibold">
+              {' '}
+              Showing 124 curated culinary masterpieces{' '}
+            </span>
+          </div>
+
+          <div>
+            <SelectDropdown />
+          </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
