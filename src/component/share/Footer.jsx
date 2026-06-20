@@ -1,3 +1,5 @@
+'use client';
+
 import Link from 'next/link';
 import { Mail, MapPin, Phone, Utensils } from 'lucide-react';
 import { FaFacebookF, FaInstagram, FaXTwitter } from 'react-icons/fa6';
