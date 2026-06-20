@@ -13,6 +13,7 @@ export default function SignupPage() {
   const [showPassword, setShowPassword] = useState(false);
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const [role, setRole] = useState('user');
 
   const router = useRouter();
 
@@ -22,6 +23,7 @@ export default function SignupPage() {
 
     const formData = new FormData(e.currentTarget);
     const users = Object.fromEntries(formData.entries());
+
     const passwordValue = users.password;
 
     if (passwordValue.length < 6) {
@@ -41,6 +43,7 @@ export default function SignupPage() {
       email: users.email,
       password: passwordValue,
       image: users.image,
+      role: role,
     });
 
     if (data) {
@@ -171,6 +174,55 @@ export default function SignupPage() {
                 <p className="text-sm text-red-300">{error}</p>
               </div>
             )}
+
+            {/* role */}
+
+            <div>
+              <label className="mb-3 block text-sm font-medium text-white">
+                Select Role
+              </label>
+
+              <div className="grid grid-cols-2 gap-4">
+                <label className="cursor-pointer">
+                  <input
+                    type="radio"
+                    name="role"
+                    value="user"
+                    checked={role === 'user'}
+                    onChange={e => setRole(e.target.value)}
+                    defaultChecked
+                    className="peer hidden"
+                  />
+
+                  <div className="rounded-xl border border-white/10 bg-[#1a0f0c]/80 p-4 transition-all duration-300 peer-checked:border-orange-500 peer-checked:bg-orange-500/10 peer-checked:ring-2 peer-checked:ring-orange-500/20 hover:border-orange-400">
+                    <h3 className="font-semibold text-white">👨‍🍳 User</h3>
+
+                    <p className="mt-1 text-xs text-[#cdb7aa]">
+                      Browse recipes, like, favorite and share.
+                    </p>
+                  </div>
+                </label>
+
+                <label className="cursor-pointer">
+                  <input
+                    type="radio"
+                    name="role"
+                    value="admin"
+                    checked={role === 'admin'}
+                    onChange={e => setRole(e.target.value)}
+                    className="peer hidden"
+                  />
+
+                  <div className="rounded-xl border border-white/10 bg-[#1a0f0c]/80 p-4 transition-all duration-300 peer-checked:border-orange-500 peer-checked:bg-orange-500/10 peer-checked:ring-2 peer-checked:ring-orange-500/20 hover:border-orange-400">
+                    <h3 className="font-semibold text-white">🛡️ Admin</h3>
+
+                    <p className="mt-1 text-xs text-[#cdb7aa]">
+                      Manage recipes, users and platform content.
+                    </p>
+                  </div>
+                </label>
+              </div>
+            </div>
 
             <button
               type="submit"

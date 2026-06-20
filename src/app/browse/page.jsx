@@ -1,4 +1,4 @@
-import SelectDropdown from '@/component/browsecomponent/page';
+import SelectDropdown from '@/component/browsecomponent/SelectDropdown';
 import FeaturedCard from '@/component/homepage/FeaturedCard';
 import PopularRecipeCard from '@/component/homepage/PopularRecipeCard';
 import { getAllRecipeData } from '@/db/recipe';
