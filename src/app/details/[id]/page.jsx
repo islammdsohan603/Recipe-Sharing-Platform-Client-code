@@ -1,6 +1,6 @@
 import RecipeDetailsClientCard from '@/component/browsecomponent/RecipeDetailsClientCard';
 import { getDetailsRecipeData } from '@/db/recipe';
-import Image from 'next/image';
+
 import React from 'react';
 
 const RecipeDetails = async ({ params }) => {

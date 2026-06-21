@@ -1,18 +1,13 @@
 'use client';
 
 import Image from 'next/image';
-import {
-  Heart,
-  Bookmark,
-  Share2,
-  Clock,
-  ChefHat,
-  Star,
-  ArrowLeft,
-  CircleDollarSign,
-} from 'lucide-react';
+import { Clock, ChefHat, Star, ArrowLeft } from 'lucide-react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import LikeButtons from '../actionbutton/LikeButtons';
+import FavoriteButtons from '../actionbutton/FavoriteButtons';
+import PurchaseButtons from '../actionbutton/PurchaseButtons';
+import ReportButtons from '../actionbutton/ReportButtons';
 
 const RecipeDetailsClientCard = ({ recipe }) => {
   const {
@@ -101,32 +96,21 @@ const RecipeDetailsClientCard = ({ recipe }) => {
 
             {/* Buttons */}
             <div className="flex flex-wrap gap-4 mt-8">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="flex items-center cursor-pointer gap-2 bg-red-500 px-5 py-3 rounded-xl text-white"
-              >
-                <Heart size={18} />
-                Like ({likesCount})
-              </motion.button>
+              <div>
+                <LikeButtons likesCount={likesCount} />
+              </div>
 
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="flex items-center cursor-pointer gap-2 bg-yellow-500 px-5 py-3 rounded-xl text-white"
-              >
-                <Bookmark size={18} />
-                Favorite
-              </motion.button>
+              <div>
+                <FavoriteButtons />
+              </div>
 
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="flex items-center cursor-pointer gap-2 bg-blue-500 px-5 py-3 rounded-xl text-white"
-              >
-                <CircleDollarSign size={18} />
-                Purchase
-              </motion.button>
+              <div>
+                <PurchaseButtons />
+              </div>
+
+              <div>
+                <ReportButtons />
+              </div>
             </div>
 
             {/* Author */}

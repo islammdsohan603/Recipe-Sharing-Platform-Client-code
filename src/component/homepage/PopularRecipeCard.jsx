@@ -18,11 +18,27 @@ const PopularRecipeCard = ({ recipe }) => {
     likesCount,
   } = recipe;
 
+  // ১. কার্ড স্ক্রিনে আসার জন্য Entrance Animation Variants
+  const cardEntranceVariants = {
+    hidden: { opacity: 0, y: 24 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.4, ease: 'easeOut' },
+    },
+  };
+
   return (
     <motion.div
+      // এখানে এন্ট্রান্স অ্যানিমেশন ভেরিয়েন্ট সেট করা হলো
+      variants={cardEntranceVariants}
+      initial="hidden"
+      animate="show"
+      exit={{ opacity: 0, y: -20 }} // পেজিনেশন চেঞ্জ হলে স্মুথ এক্সিট হবে
+      // আপনার আগের হোভার অ্যানিমেশন ঠিক রাখা হয়েছে
       whileHover={{ y: -8, boxShadow: '0 20px 40px rgba(255, 109, 51, 0.15)' }}
       transition={{ duration: 0.3, ease: 'easeOut' }}
-      className="group relative overflow-hidden rounded-2xl bg-linear-to-b from-[#1a0f0c] to-[#0c0604] border border-orange-950/30 hover:border-orange-600/50 transition-colors duration-300"
+      className="group relative overflow-hidden rounded-2xl bg-linear-to-b from-[#1a0f0c] to-[#0c0604] border border-orange-950/30 hover:border-orange-600/50 transition-colors duration-300 w-full"
     >
       {/* Image Container */}
       <div className="relative h-56 w-full overflow-hidden bg-[#1a0f0c]">
