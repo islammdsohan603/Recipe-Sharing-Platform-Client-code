@@ -12,11 +12,11 @@ const BrowesRecipe = async () => {
       <div className="w-11/12 max-w-7xl mx-auto py-6 md:py-10">
         <div className="flex flex-col md:flex-row items-center justify-between py-6  ">
           <div>
-            <h1 className="text-2xl font-bold md:text-3xl lg:text-4xl ">
+            <h1 className="text-2xl text-white font-bold md:text-3xl lg:text-4xl ">
               {' '}
               Explore Recipes{' '}
             </h1>
-            <span className="text-lg font-semibold">
+            <span className="text-lg text-white font-semibold">
               {' '}
               Showing 124 curated culinary masterpieces{' '}
             </span>

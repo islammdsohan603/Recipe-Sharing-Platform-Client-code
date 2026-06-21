@@ -110,13 +110,13 @@ const AdminPage = () => {
 
   return (
     <div className="">
-      <h1 className="text-3xl font-bold ml-4">
+      <h1 className="text-3xl font-bold ml-4 ">
         {' '}
         {user.name.toUpperCase()} WelCame to Admin page
       </h1>
 
       <div className="py-4 ml-4">
-        <StatsGrid data={adminData} />
+        <StatsGrid data={recipeData} />
       </div>
     </div>
   );

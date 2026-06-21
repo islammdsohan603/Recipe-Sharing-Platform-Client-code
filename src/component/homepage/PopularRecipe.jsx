@@ -8,11 +8,11 @@ const PopularRecipe = async () => {
     <div className="bg-[#0c0604]">
       <div className="w-11/12 max-w-7xl mx-auto py-4 ">
         <div className="space-y-2 py-4">
-          <h1 className="text-2xl font-bold text-orange-400/50 ">
+          <h1 className="text-2xl md:text-3xl font-bold text-orange-500 ">
             {' '}
             Trending Now{' '}
           </h1>
-          <span className=" font-semibold">
+          <span className=" font-semibold text-white">
             {' '}
             Most Loved by Our Community this week{' '}
           </span>
