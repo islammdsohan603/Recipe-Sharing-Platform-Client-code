@@ -42,6 +42,12 @@ const LoginPage = () => {
     });
 
     if (data) {
+      try {
+        const { default: api } = await import('@/lib/api');
+        await api.post('/api/jwt', { email: users.email });
+      } catch (err) {
+        console.error("JWT Sync error", err);
+      }
       toast.success('Login successful');
       router.refresh();
       window.location.href = '/';
@@ -66,7 +72,7 @@ const LoginPage = () => {
             </p>
 
             <h1 className="text-3xl font-bold text-white sm:text-4xl">
-              Create Account
+              Login to Your Account
             </h1>
 
             <p className="mt-2 text-sm leading-6 text-[#cdb7aa]">

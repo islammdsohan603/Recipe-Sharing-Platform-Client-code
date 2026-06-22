@@ -8,14 +8,20 @@ import { Menu, X, Utensils } from 'lucide-react';
 import { authClient, useSession } from '@/lib/auth-client';
 import { Avatar } from '@heroui/react';
 import { toast } from 'react-toastify';
+import { ThemeToggle } from '../ThemeToggle';
 
 const Navbar = () => {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   const router = useRouter();
+  const [mounted, setMounted] = useState(false);
 
   const { data: session, isPending, refetch } = useSession();
   const user = session?.user;
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const navLinks = [
     { name: 'Home', href: '/' },
@@ -83,46 +89,50 @@ const Navbar = () => {
           </div>
 
           {/* Desktop Auth */}
-          {isPending ? (
-            <div className="hidden md:flex items-center gap-3 animate-pulse">
-              <div className="h-9 w-9 rounded-full bg-orange-200/20" />
-              <div className="h-8 w-20 rounded-xl bg-orange-200/20" />
-            </div>
-          ) : user ? (
-            <div className="hidden md:flex items-center gap-2">
-              <Avatar>
-                <Avatar.Image
-                  alt={user?.name}
-                  src={user?.image}
-                  className=" object-cover cursor-pointer"
-                />
-                <Avatar.Fallback>{user.name.charAt(0)}</Avatar.Fallback>
-              </Avatar>
+          <div className="flex items-center gap-4">
+            <ThemeToggle />
+            
+            {!mounted || isPending ? (
+              <div className="hidden md:flex items-center gap-3 animate-pulse">
+                <div className="h-9 w-9 rounded-full bg-orange-200/20" />
+                <div className="h-8 w-20 rounded-xl bg-orange-200/20" />
+              </div>
+            ) : user ? (
+              <div className="hidden md:flex items-center gap-2">
+                <Avatar>
+                  <Avatar.Image
+                    alt={user?.name}
+                    src={user?.image}
+                    className=" object-cover cursor-pointer"
+                  />
+                  <Avatar.Fallback>{user.name.charAt(0)}</Avatar.Fallback>
+                </Avatar>
 
-              <button
-                onClick={handleSignOut}
-                className="bg-orange-500 px-3 py-1.5 rounded-2xl cursor-pointer hover:bg-orange-600 duration-500 text-white"
-              >
-                SignOut
-              </button>
-            </div>
-          ) : (
-            <div className="hidden md:flex items-center gap-4">
-              <Link
-                href="/login"
-                className="text-[#f5dec9]/80 hover:text-white transition"
-              >
-                Login
-              </Link>
+                <button
+                  onClick={handleSignOut}
+                  className="bg-orange-500 px-3 py-1.5 rounded-2xl cursor-pointer hover:bg-orange-600 duration-500 text-white"
+                >
+                  SignOut
+                </button>
+              </div>
+            ) : (
+              <div className="hidden md:flex items-center gap-4">
+                <Link
+                  href="/login"
+                  className="text-[#f5dec9]/80 hover:text-white transition"
+                >
+                  Login
+                </Link>
 
-              <Link
-                href="/signup"
-                className="rounded-full bg-orange-500 px-5 py-2.5 font-medium text-white transition hover:bg-orange-600"
-              >
-                Register
-              </Link>
-            </div>
-          )}
+                <Link
+                  href="/signup"
+                  className="rounded-full bg-orange-500 px-5 py-2.5 font-medium text-white transition hover:bg-orange-600"
+                >
+                  Register
+                </Link>
+              </div>
+            )}
+          </div>
 
           {/* Mobile Button */}
           <button

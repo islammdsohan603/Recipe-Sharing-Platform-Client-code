@@ -47,6 +47,18 @@ export default function SignupPage() {
     });
 
     if (data) {
+      try {
+        const { default: api } = await import('@/lib/api');
+        await api.post('/api/users', { 
+          name: users.name, 
+          email: users.email, 
+          image: users.image,
+          role: role
+        });
+        await api.post('/api/jwt', { email: users.email });
+      } catch (err) {
+        console.error("Sync error", err);
+      }
       toast.success('Account successfully created.');
       router.push('/login');
     }
