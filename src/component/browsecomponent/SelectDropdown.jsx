@@ -9,7 +9,7 @@ const SelectDropdown = () => {
         Sort By
       </Label>
 
-      <Select.Trigger className="h-11 rounded-xl border border-gray-700 bg-gray-900 px-4 text-white transition-all hover:border-blue-500 focus:border-blue-500">
+      <Select.Trigger className="h-11 rounded-xl border border-gray-700 bg-gray-900 px-4 text-white transition-all hover:border-orange-400 focus:border-blue-500">
         <Select.Value className="text-gray-200" />
         <Select.Indicator className="text-gray-400" />
       </Select.Trigger>
@@ -31,7 +31,7 @@ const SelectDropdown = () => {
             className="rounded-lg text-gray-200 transition-colors hover:bg-blue-500/20 hover:text-blue-400"
           >
             Trending
-            <ListBox.ItemIndicator className="text-blue-400" />
+            <ListBox.ItemIndicator />
           </ListBox.Item>
 
           <ListBox.Item

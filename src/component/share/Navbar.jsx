@@ -12,26 +12,31 @@ import { toast } from 'react-toastify';
 const Navbar = () => {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
+  const router = useRouter();
+
+  const { data: session, isPending, refetch } = useSession();
+  const user = session?.user;
 
   const navLinks = [
     { name: 'Home', href: '/' },
     { name: 'Browse Recipes', href: '/browse' },
+    ...(user
+      ? [
+          {
+            name: 'Dashboard',
+            href: user?.role === 'admin' ? '/dashboard/admin' : '/dashboard/user',
+          },
+        ]
+      : []),
   ];
 
   const closeMenu = () => setIsOpen(false);
 
-  const { data: session, isPending, refetch } = useSession();
-  const user = session?.user;
-  const router = useRouter();
-
   const handleSignOut = async () => {
     try {
       await authClient.signOut();
-
       await refetch?.();
-
       toast.success('Signed out successfully');
-
       router.refresh();
       router.replace('/');
     } catch {
