@@ -1,12 +1,31 @@
 'use client';
 
 import { Label, ListBox, Select } from '@heroui/react';
+import { useState } from 'react';
 
-const SelectDropdown = () => {
+const SelectDropdown = ({ selectedCategory, onCategoryChange }) => {
+  const [selected, setSelected] = useState(new Set([selectedCategory || 'all']));
+
+  const handleSelectionChange = (keys) => {
+    const selectedValue = Array.from(keys)[0];
+    setSelected(new Set([selectedValue]));
+    
+    if (selectedValue === 'all') {
+      onCategoryChange('');
+    } else {
+      onCategoryChange(selectedValue);
+    }
+  };
+
   return (
-    <Select className="w-64" placeholder="Select one">
+    <Select 
+      className="w-64" 
+      placeholder="Select category"
+      selectedKeys={selected}
+      onSelectionChange={handleSelectionChange}
+    >
       <Label className="mb-2 block text-sm font-medium text-gray-300">
-        Sort By
+        Filter By Category
       </Label>
 
       <Select.Trigger className="h-11 rounded-xl border border-gray-700 bg-gray-900 px-4 text-white transition-all hover:border-orange-400 focus:border-blue-500">
@@ -16,31 +35,20 @@ const SelectDropdown = () => {
 
       <Select.Popover className="rounded-xl border border-gray-700 bg-gray-900 shadow-xl">
         <ListBox className="p-2">
-          <ListBox.Item
-            id="new"
-            textValue="New"
-            className="rounded-lg text-gray-200 transition-colors hover:bg-blue-500/20 hover:text-blue-400"
-          >
-            New
-            <ListBox.ItemIndicator className="text-blue-400" />
+          <ListBox.Item id="all" textValue="All Categories" className="rounded-lg text-gray-200 hover:bg-orange-500/20 hover:text-orange-400">
+            All Categories
           </ListBox.Item>
-
-          <ListBox.Item
-            id="tranding"
-            textValue="Trending"
-            className="rounded-lg text-gray-200 transition-colors hover:bg-blue-500/20 hover:text-blue-400"
-          >
-            Trending
-            <ListBox.ItemIndicator />
+          <ListBox.Item id="Breakfast" textValue="Breakfast" className="rounded-lg text-gray-200 hover:bg-orange-500/20 hover:text-orange-400">
+            Breakfast
           </ListBox.Item>
-
-          <ListBox.Item
-            id="hot"
-            textValue="Hot"
-            className="rounded-lg text-gray-200 transition-colors hover:bg-blue-500/20 hover:text-blue-400"
-          >
-            Hot
-            <ListBox.ItemIndicator className="text-blue-400" />
+          <ListBox.Item id="Lunch" textValue="Lunch" className="rounded-lg text-gray-200 hover:bg-orange-500/20 hover:text-orange-400">
+            Lunch
+          </ListBox.Item>
+          <ListBox.Item id="Dinner" textValue="Dinner" className="rounded-lg text-gray-200 hover:bg-orange-500/20 hover:text-orange-400">
+            Dinner
+          </ListBox.Item>
+          <ListBox.Item id="Dessert" textValue="Dessert" className="rounded-lg text-gray-200 hover:bg-orange-500/20 hover:text-orange-400">
+            Dessert
           </ListBox.Item>
         </ListBox>
       </Select.Popover>

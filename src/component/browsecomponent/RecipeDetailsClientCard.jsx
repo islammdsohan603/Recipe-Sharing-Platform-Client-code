@@ -97,11 +97,11 @@ const RecipeDetailsClientCard = ({ recipe }) => {
             {/* Buttons */}
             <div className="flex flex-wrap gap-4 mt-8">
               <div>
-                <LikeButtons likesCount={likesCount} />
+                <LikeButtons recipeId={recipe._id} initialLikesCount={likesCount} />
               </div>
 
               <div>
-                <FavoriteButtons />
+                <FavoriteButtons recipeId={recipe._id} />
               </div>
 
               <div>
@@ -109,7 +109,7 @@ const RecipeDetailsClientCard = ({ recipe }) => {
               </div>
 
               <div>
-                <ReportButtons />
+                <ReportButtons recipeId={recipe._id} />
               </div>
             </div>
 

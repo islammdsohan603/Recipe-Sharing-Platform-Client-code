@@ -23,14 +23,14 @@ export const gerFeaturedRecipe = async () => {
 }
 
 // all data
-export const getAllRecipeData = async () => {
+export const getAllRecipeData = async (page = 1, limit = 8, categories = "") => {
   try {
-    const res = await fetch(`${baseUrl}/api/all-recipe`)
-    const result = await res.json()
-    console.log(result)
-    return result
+    const res = await fetch(`${baseUrl}/api/all-recipe?page=${page}&limit=${limit}&categories=${categories}`);
+    const result = await res.json();
+    return result;
   } catch (error) {
-    console.log(error)
+    console.log(error);
+    return { recipes: [], total: 0, page: 1, limit: 8 };
   }
 }
 

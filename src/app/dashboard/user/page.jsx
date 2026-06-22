@@ -5,12 +5,14 @@ import { useEffect, useState } from 'react';
 import { getUserStats } from '@/db/recipe';
 import { BookOpen, Heart, ThumbsUp, Crown, TrendingUp, Sparkles } from 'lucide-react';
 import { motion } from 'framer-motion';
+import StripeCheckoutWrapper from '@/component/StripeCheckout';
 
 const UserOverviewPage = () => {
   const { data: session, isPending } = useSession();
   const user = session?.user;
   const [stats, setStats] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [showPremiumModal, setShowPremiumModal] = useState(false);
 
   useEffect(() => {
     if (user?.email) {
@@ -146,11 +148,38 @@ const UserOverviewPage = () => {
                 You can only add up to 2 recipes as a free member. Unlock unlimited recipe uploads and premium features!
               </p>
             </div>
-            <button className="shrink-0 px-6 py-2.5 rounded-xl bg-gradient-to-r from-yellow-500 to-amber-600 text-white font-semibold text-sm hover:from-yellow-400 hover:to-amber-500 transition-all duration-300 shadow-lg shadow-yellow-500/20">
+            <button 
+              onClick={() => setShowPremiumModal(true)}
+              className="shrink-0 px-6 py-2.5 rounded-xl bg-gradient-to-r from-yellow-500 to-amber-600 text-white font-semibold text-sm hover:from-yellow-400 hover:to-amber-500 transition-all duration-300 shadow-lg shadow-yellow-500/20"
+            >
               Go Premium
             </button>
           </div>
         </motion.div>
+      )}
+
+      {showPremiumModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm">
+          <div className="relative w-full max-w-md rounded-2xl bg-[#101010] p-6 shadow-2xl border border-white/10">
+            <button
+              onClick={() => setShowPremiumModal(false)}
+              className="absolute top-4 right-4 text-gray-400 hover:text-white"
+            >
+              X
+            </button>
+            <h2 className="text-xl font-bold text-white mb-4">Upgrade to Premium</h2>
+            <p className="text-sm text-gray-400 mb-6">
+              Unlock unlimited recipe creation for just $10.
+            </p>
+            <StripeCheckoutWrapper
+              userEmail={user?.email}
+              onSuccess={() => {
+                setShowPremiumModal(false);
+                setStats({...stats, isPremium: true});
+              }}
+            />
+          </div>
+        </div>
       )}
 
       {/* Quick Actions */}
